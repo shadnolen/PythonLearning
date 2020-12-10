@@ -45,7 +45,10 @@ elif year < 1900:
 die1 = random.randint(1,6)
 die2 = random.randint(1,6)
 
-total = die1 + die2
+
+
+
+    
 print(die1, die2 , '= ', die1 + die2, end=' ')
  
     #Craps
@@ -82,4 +85,16 @@ elif die1 + die2 == 10:
     #Out
 elif die1 + die2 == 7:
    print('Seven Out')
+
+total = 0
+total = (die1 + die2) * (distance_to_center * year)
+print(total, end='')
+if(total % 2) ==0:
+    print(" Even Steven ", end='')
+else:
+    print(" Odd Todd ", end='')
+print()
+
+
+
 
