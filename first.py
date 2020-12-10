@@ -87,7 +87,7 @@ elif die1 + die2 == 7:
    print('Seven Out')
 
 total = 0
-total = (die1 + die2) * (distance_to_center * year)
+total = ((die1 + die2) * (die1 + die2)) 
 print(total, end='')
 if(total % 2) ==0:
     print(" Even Steven ", end='')
