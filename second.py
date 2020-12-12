@@ -3,6 +3,8 @@ import random
 die1 = random.randint(1,6)
 die2 = random.randint(1,6)
 total = die1 + die2
+roll = total
+
 
 while total != 7:
     die1 = random.randint(1,6)
@@ -46,3 +48,4 @@ while total != 7:
        print('Seven Out')
 else:
     print("Seven out")
+
