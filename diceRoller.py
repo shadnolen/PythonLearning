@@ -3,15 +3,16 @@ import random
 die1 = random.randint(1,6)
 die2 = random.randint(1,6)
 total = die1 + die2
-roll = total
+count = 0
 
 
 while total != 7:
     die1 = random.randint(1,6)
     die2 = random.randint(1,6)
     total = die1 + die2
-    print(die1, die2 , '= ', die1 + die2, end=' ')
- 
+    print(die1, die2, '= ', die1 + die2, end=' ')   
+    count = count + 1
+
     #Craps
     if die1 + die2 == 2:
         print('Snake Eyes')
@@ -47,5 +48,11 @@ while total != 7:
     elif die1 + die2 == 7:
        print('Seven Out')
 else:
-    print("Seven out")
-
+    
+    print('You rolled:', count, 'Times')
+    if count == 0:
+        print('No Roll, Dice Out Reroll')
+    if count ==1:
+        print('Winner, Winner Chicken Dinner')
+    else:
+        print("Seven out")
