@@ -15,9 +15,17 @@ miles = int(miles)
 hoursWorked = input('How long did you grind today ')
 hoursWorked = int(hoursWorked)
 
-daliyIncome = income - expense
-hourly = daliyIncome/hoursWorked
-perMile = miles/income
+dailyIncome = income - expense
+hourly = dailyIncome/hoursWorked
+perMile = income/miles
 
+print(income)
+print(expense)
+print(miles)
+print(hoursWorked)
+print(dailyIncome)
+print(hourly)
+print(perMile)
 
-print(income , daliyIncome, hourly, perMile)
+print('You made $', income, 'and spent $', expense, 'and drove ', miles, 'miles. ')
+print('Income - Expenses:', dailyIncome, 'Hourly Average: $', hourly, 'or made ', perMile, 'per mile!')
