@@ -87,14 +87,20 @@ elif die1 + die2 == 7:
    print('Seven Out')
 
 total = 0
-total = ((die1 + die2) * (die1 + die2)) 
+total = die1 + die2 
 print(total, end='')
 if(total % 2) ==0:
-    print(" Even Steven ", end='')
+    print(" Even Steven ")
 else:
-    print(" Odd Todd ", end='')
+    print(" Odd Todd ")
+if total > 1:
+    for i in range(2, total):
+        if(total % i) == 0:
+            print(total, 'Not so Prime')
+            print(i, 'times', total//i, 'is', total)
+            break
+    else:
+        print(total, ' Is Prime')
+
 print()
-
-
-
 
