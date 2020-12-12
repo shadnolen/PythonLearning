@@ -55,4 +55,4 @@ else:
     if count ==1:
         print('Winner, Winner Chicken Dinner')
     else:
-        print("Seven out")
+        print("Place your  bets boys and girls")
