@@ -10,7 +10,7 @@ while total != 7:
     die1 = random.randint(1,6)
     die2 = random.randint(1,6)
     total = die1 + die2
-    print(die1, die2, '= ', die1 + die2, end=' ')   
+    print(die1, die2, '=', die1 + die2, end=' ')   
     count = count + 1
 
     #Craps
@@ -47,12 +47,13 @@ while total != 7:
     #Out
     elif die1 + die2 == 7:
        print('Seven Out')
-else:
-    
+else:    
     print('You rolled:', count, 'Times')
     if count == 0:
         print('No Roll, Dice Out Reroll')
     if count ==1:
         print('Winner, Winner Chicken Dinner')
+    if count >=10:
+        print('Golden Hand of Destiny')
     else:
-        print("Place your  bets boys and girls")
+        print("Place your bets boys and girls")
