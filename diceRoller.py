@@ -16,12 +16,8 @@ while total != 7:
     total = die1 + die2
     print(die1, die2, '=', die1 + die2, end=' ')   
     count = count + 1
-    wager = bet
-    if (wager == total == 4):
-        wager = bet * 1.5
-        print(wager)
-    else:
-        print(bet)
+    wager = 4
+ 
         
 
 
@@ -47,7 +43,10 @@ while total != 7:
     #Singles
     elif die1 + die2 == 4:
         print('Four is a bore')  
-        print(bet)
+        if (wager == total == 4):
+            bet = bet * 1.5
+            print(bet)
+
     elif die1 + die2 == 5:
         print('Five on the black hand side') 
     elif die1 + die2 == 6:
@@ -67,6 +66,8 @@ else:
         print('No Roll, Dice Out Reroll')
     if count ==1:
         print('Winner, Winner Chicken Dinner')
+    if count ==1 == total == 12:
+        print('12 Craps Line Down')
     if count >=10:
         print('Golden Hand of Destiny')
     else:
