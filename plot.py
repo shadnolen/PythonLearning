@@ -1,27 +1,27 @@
-import PySimpleGUI as sg
+from tkinter import *
 
-sg.theme('Dark Green 7')
+window = Tk()
 
-layout = [ [sg.Txt('Enter values to calculate')],
-           [sg.In(size=(8,1), key='-NUMERATOR-')],
-           [sg.Txt('_'  * 10)],
-           [sg.In(size=(8,1), key='-DENOMINATAOR-')],
-           [sg.Txt(size=(8,1), key='-OUTPUT-')  ],
-           [sg.Button('Calculate', bind_return_key=True)]]
+window.title("Welcome to LikeGeeks app")
 
-window = sg.Window('Math', layout)
+window.geometry('350x200')
 
-while True:
-    event, values = window.read()
+lbl = Label(window, text="Hello")
 
-    if event != sg.WIN_CLOSED:
-        try:
-            numerator = float(values['-NUMERATOR-'])
-            denominator = float(values['-DENOMINATAOR-'])
-            calc = numerator/denominator
-        except:
-            calc = 'Invalid'
+lbl.grid(column=0, row=0)
 
-        window['-OUTPUT-'].update(calc)
-    else:
-        break
+txt = Entry(window,width=10)
+
+txt.grid(column=1, row=0)
+
+def clicked():
+
+    res = "Welcome to " + txt.get()
+
+    lbl.configure(text= res)
+
+btn = Button(window, text="Click Me", command=clicked)
+
+btn.grid(column=2, row=0)
+
+window.mainloop()
