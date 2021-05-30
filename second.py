@@ -25,3 +25,6 @@ while bottles_of_beer > 1:
     bottles_of_beer -= 1
     bottles -= 2
 
+if bottles_of_beer == 0:
+    print('You Drunk?')
+    
