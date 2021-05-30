@@ -1,5 +1,6 @@
 import datetime
 
+
 #Variables
 income = 0
 expense = 0
