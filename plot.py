@@ -1,35 +1,27 @@
 from tkinter import *
 
-from random import randint
-import PySimpleGUI as sg
+window = Tk()
 
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, FigureCanvasAgg
-from matplotlib.figure import Figure
-import matplotlib.backends.tkagg as tkagg
-import tkinter as Tk
+window.title("Welcome to LikeGeeks app")
 
-sg.theme('Dark Green 7')
+window.geometry('350x200')
 
-layout = [ [sg.Txt('Enter values to calculate')],
-           [sg.In(size=(8,1), key='-NUMERATOR-')],
-           [sg.Txt('_'  * 10)],
-           [sg.In(size=(8,1), key='-DENOMINATAOR-')],
-           [sg.Txt(size=(8,1), key='-OUTPUT-')  ],
-           [sg.Button('Calculate', bind_return_key=True)]]
+lbl = Label(window, text="Hello")
 
-window = sg.Window('Math', layout)
+lbl.grid(column=0, row=0)
 
-while True:
-    event, values = window.read()
+txt = Entry(window,width=10)
 
-    if event != sg.WIN_CLOSED:
-        try:
-            numerator = float(values['-NUMERATOR-'])
-            denominator = float(values['-DENOMINATAOR-'])
-            calc = numerator/denominator
-        except:
-            calc = 'Invalid'
+txt.grid(column=1, row=0)
 
-        window['-OUTPUT-'].update(calc)
-    else:
-        break
+def clicked():
+
+    res = "Welcome to " + txt.get()
+
+    lbl.configure(text= res)
+
+btn = Button(window, text="Click Me", command=clicked)
+
+btn.grid(column=2, row=0)
+
+window.mainloop()
