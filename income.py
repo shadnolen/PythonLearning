@@ -1,5 +1,11 @@
 import datetime
-
+#LIST-O-THINGS
+#start/endDate
+#start/endTime
+#gasCost
+#work on not null and input
+#add SQLite
+#add to Window
 
 #Variables
 
@@ -13,8 +19,12 @@ dailyGoal = 240
 userName = input('Enter Name:')
 userName = str(userName)
 
+
+
 income = input('Enter Income: ')
 income = int(income)
+
+
 
 expense = input('Do you have any Expense: ')
 expense = int(expense)
