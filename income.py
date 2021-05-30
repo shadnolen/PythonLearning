@@ -2,6 +2,7 @@ import datetime
 
 
 #Variables
+
 income = 0
 expense = 0
 miles = 0
@@ -9,6 +10,9 @@ hoursWorked = 0
 dailyGoal = 240
 
 #Inputs
+userName = input('Enter Name:')
+userName = str(userName)
+
 income = input('Enter Income: ')
 income = int(income)
 
@@ -41,7 +45,8 @@ goalReached = round(goalReached, 2)
 todayDate = datetime.datetime.now()
 
 #Print out of inputs
-print('\nOn', todayDate.strftime("%A"','),'Day',todayDate.strftime("%j"),'At',todayDate.strftime("%X"))
+print('\nHay',userName,',')
+print('On', todayDate.strftime("%A"','),'Day',todayDate.strftime("%j"),'At',todayDate.strftime("%X"))
 print('\nYou Entered', income, 'For Income')
 print('You Entered', expense, 'For Expenses')
 print('You Entered', miles, 'For Miles', '\nWith An Average Cost of: $', milesCostRound)
@@ -57,10 +62,12 @@ elif goalReached > 0:
     print('You Exceeded your goal by: $',goalReached)
 
 #if statment - Did you reach your goal?
-if income < dailyGoal:
-    print('You Need To Grind Harder')
-elif income > dailyGoal*2:
-    print('Balling out of Control')
+if dailyIncome < dailyGoal:
+    print('You Need To Grind Harder ',userName)
+elif dailyIncome > dailyGoal:
+    print(userName,'What could you have done better?')
+elif dailyIncome > dailyGoal*2:
+    print(userName,'You Where Balling Out Of Control')
 else:
     print('Good Job, Let Do Better Tommorow')
 

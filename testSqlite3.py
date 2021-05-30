@@ -32,24 +32,28 @@ def create_table(conn, create_table_sql):
 
 
 def main():
-    database = r"C:\sqlite\db\pythonsqlite.db"
+    database = r"BreadStixTracker.db"
 
-    sql_create_projects_table = """ CREATE TABLE IF NOT EXISTS projects (
-                                        id integer PRIMARY KEY,
-                                        name text NOT NULL,
-                                        begin_date text,
-                                        end_date text
+    sql_create_projects_table = """ CREATE TABLE IF NOT EXISTS user (
+                                        id INT PRIMARY KEY,
+                                        userName text NOT NULL,
+                                        beginDate DATE,
+                                        endDate DATE
                                     ); """
 
-    sql_create_tasks_table = """CREATE TABLE IF NOT EXISTS tasks (
-                                    id integer PRIMARY KEY,
-                                    name text NOT NULL,
-                                    priority integer,
-                                    status_id integer NOT NULL,
-                                    project_id integer NOT NULL,
-                                    begin_date text NOT NULL,
-                                    end_date text NOT NULL,
-                                    FOREIGN KEY (project_id) REFERENCES projects (id)
+    sql_create_tasks_table = """CREATE TABLE IF NOT EXISTS tracker (
+                                    id INT PRIMARY KEY,
+                                    areaGrinded text NOT NULL,
+                                    income INT NOT NULL,
+                                    priority INT,                                    
+                                    dateWorked DATE NOT NULL,
+                                    timeStart TIME(0) NOT NULL,
+                                    timeEnd TIME(0) NOT NULL,  
+                                    expense INT NOT NULL,
+                                    gasCost INT NOT NULL,
+                                    milesDriven INT NOT NULL,
+                                                                      
+                                    FOREIGN KEY (dateWorked) REFERENCES user (id)
                                 );"""
 
     # create a database connection
