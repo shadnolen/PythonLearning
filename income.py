@@ -27,10 +27,15 @@ goalReached = dailyIncome - dailyGoal
 
 hourly = dailyIncome/hoursWorked
 perMile = income/miles
-expense = expense + mileCost
+expenseTotal = expense + mileCost
 
-
-
+# Let's Round two decmial places 
+incomeRound = round(income, 2)
+expenseRound = round(expense, 2)
+hourlyRound = round(hourly, 2)
+milesRound = round(perMile, 2)
+milesCostRound = round(mileCost,2)
+goalReached = round(goalReached, 2)
 # Date 
 todayDate = datetime.datetime.now()
 
@@ -38,14 +43,17 @@ todayDate = datetime.datetime.now()
 print('\nOn', todayDate.strftime("%A"','),'Day',todayDate.strftime("%j"),'At',todayDate.strftime("%X"))
 print('\nYou Entered', income, 'For Income')
 print('You Entered', expense, 'For Expenses')
-print('You Entered', miles, 'For Miles', 'With An Average Cost of: $', mileCost)
+print('You Entered', miles, 'For Miles', '\nWith An Average Cost of: $', milesCostRound)
 print('You Entered', hoursWorked, 'For Hours Worked')
 
 
-print('\nYou made $',income, '\nWhile Spending: $',expense, '\nYou drove ', miles, 'miles. ')
-print('\nYour Averages Are:',  '\nHourly: $', hourly, '\nWage Per Mile Driven: ', perMile,'\n')
+print('\nYou made $',incomeRound, '\nWhile Spending: $',expenseRound, '\nYou drove ', miles, 'miles. ')
+print('\nYour Averages Are:',  '\nHourly: $', hourlyRound, '\nWage Per Mile Driven: ', milesRound,'\n')
 
-print('$',goalReached)
+if goalReached < 0:
+    print('You were: $',goalReached,'Short of your Goal Buster')
+elif goalReached > 0:
+    print('You Exceeded your goal by: $',goalReached)
 
 #if statment - Did you reach your goal?
 if income < dailyGoal:
