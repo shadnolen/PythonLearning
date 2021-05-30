@@ -1,21 +1,33 @@
-import PySimpleGUI as sg
+#imports
+from tkinter import *
 
-income = 0
+#createTheWindow
+window = Tk()
+#windowSize
+window.geometry('480x360')
 
-income = input('Enter Income: ')
-income = int(income)
+#titleLabel
+window.title("Breadstix Tracker Python Additon")
+lbl = Label(window, text="BreadStix", font=('Arial Bold', 24))
+lbl.grid(column=0, row=0)
 
-sg.theme('DarkAmber')
-layout = [
-    [sg.Text('Enter Income'),income = input('Enter Income: ')],
-    [sg.Text('Text Line 2')],
-    [sg.Button('OK'), sg.Button('Cancel') ]]
+#inputFields
+txt = Entry(window, width=10)
+txt.grid(column=1, row=1)
 
-    #Create the Window
-window = sg.Window('Window Title', layout)
-while True:
-    event, values = window.read()
-    if event == sg.WIN_CLOSED or event == 'Cancel':
-        break
-    print('Your Text', values[0])
-window.close
+def clicked():
+    res = "Welcome to " + txt.get()
+    lbl.configure(text= res)
+
+
+
+#buttons
+btn = Button(window, text= "Enter", bg="lightGreen")
+btn.grid(column=3,row=2)
+btn = Button(window, text= "Cancel", bg="red")
+btn.grid(column=4,row=2)
+
+#buttonAction
+
+#CloseWindow
+window.mainloop()
