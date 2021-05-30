@@ -1,6 +1,8 @@
 from tkinter import *
+
 from random import randint
 import PySimpleGUI as sg
+
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, FigureCanvasAgg
 from matplotlib.figure import Figure
 import matplotlib.backends.tkagg as tkagg
