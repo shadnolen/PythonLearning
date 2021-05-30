@@ -19,6 +19,9 @@ dailyGoal = 240
 userName = input('Enter Name:')
 userName = str(userName)
 
+# startDate = input("Enter date in YYYY-MM-DD format: ")
+# year, month, day = map(int, startDate.split(4,2,2))
+# startDate = datetime.date(year, month, day)
 
 
 income = input('Enter Income: ')

@@ -1,8 +1,10 @@
 #imports
 from tkinter import *
+import tkinter.messagebox
 
 #createTheWindow
 window = Tk()
+popup = Tk()
 #windowSize
 window.geometry('480x360')
 
@@ -21,17 +23,24 @@ userName.grid(column=1, row=2)
 def clicked():    
     res = "Welcome " + userName.get()
     nameLbl.configure(text= res)
-    userName.grid_remove()
+    userName.grid_remove()    
+    incomeLbl = Label(window, text="Please Enter Your Name", font=('Arial Bold', 12))
+    incomeLbl.grid(column=0, row=2)
+    
 
-
+    
+    
 
 #buttons
 btn = Button(window, text= "Enter", bg="lightGreen", command=clicked)
 btn.grid(column=0,row=3)
-btn = Button(window, text= "Cancel", bg="red")
+#close the window
+btn = Button(window, text= "Cancel", bg="red", command= window.destroy)
 btn.grid(column=1,row=3)
 
 #buttonAction
 
 #CloseWindow
 window.mainloop()
+exit
+
