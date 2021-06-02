@@ -40,7 +40,7 @@ class DigitalClock(tk.Tk):
         self.label.configure(text=self.time_string())
 
         # schedule another timer
-        self.label.after(1000, self.update)
+        self.label.after(2000, self.update)
 
 
 if __name__ == "__main__":
