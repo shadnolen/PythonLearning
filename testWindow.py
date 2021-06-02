@@ -1,46 +1,32 @@
-#imports
-from tkinter import *
-import tkinter.messagebox
+import tkinter as tk
 
-#createTheWindow
-window = Tk()
-popup = Tk()
-#windowSize
-window.geometry('480x360')
+root= tk.Tk()
 
-#titleLabel
-window.title("Breadstix Tracker Python Additon")
-lbl = Label(window, text="BreadStix Tracker", font=('Arial Bold', 18))
-lbl.grid(column=0, row=0)
+canvas1 = tk.Canvas(root, width = 400, height = 300,  relief = 'raised')
+canvas1.pack()
 
-#nameField
-nameLbl = Label(window, text="Please Enter Your Name", font=('Arial Bold', 12))
-nameLbl.grid(column=0, row=2)
-#input
-userName = Entry(window, width=10)
-userName.grid(column=1, row=2)
-#action
-def clicked():    
-    res = "Welcome " + userName.get()
-    nameLbl.configure(text= res)
-    userName.grid_remove()    
-    incomeLbl = Label(window, text="Please Enter Your Name", font=('Arial Bold', 12))
-    incomeLbl.grid(column=0, row=2)
+label1 = tk.Label(root, text='Calculate the Square Root')
+label1.config(font=('helvetica', 14))
+canvas1.create_window(200, 25, window=label1)
+
+label2 = tk.Label(root, text='Type your Number:')
+label2.config(font=('helvetica', 10))
+canvas1.create_window(200, 100, window=label2)
+
+entry1 = tk.Entry (root) 
+canvas1.create_window(200, 140, window=entry1)
+
+def getSquareRoot ():
     
-
+    x1 = entry1.get()
     
+    label3 = tk.Label(root, text= 'The Square Root of ' + x1 + ' is:',font=('helvetica', 10))
+    canvas1.create_window(200, 210, window=label3)
     
+    label4 = tk.Label(root, text= float(x1)**0.5,font=('helvetica', 10, 'bold'))
+    canvas1.create_window(200, 230, window=label4)
+    
+button1 = tk.Button(text='Get the Square Root', command=getSquareRoot, bg='brown', fg='white', font=('helvetica', 9, 'bold'))
+canvas1.create_window(200, 180, window=button1)
 
-#buttons
-btn = Button(window, text= "Enter", bg="lightGreen", command=clicked)
-btn.grid(column=0,row=3)
-#close the window
-btn = Button(window, text= "Cancel", bg="red", command= window.destroy)
-btn.grid(column=1,row=3)
-
-#buttonAction
-
-#CloseWindow
-window.mainloop()
-exit
-
+root.mainloop()
