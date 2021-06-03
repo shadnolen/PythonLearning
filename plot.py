@@ -1,70 +1,62 @@
-import sqlite3
-from sqlite3 import Error
+from tkinter import *
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,
+NavigationToolbar2Tk)
 
+# plot function is created for
+# plotting the graph in
+# tkinter window
+def plot():
 
-def create_connection(db_file):
-    """ create a database connection to the SQLite database
-        specified by db_file
-    :param db_file: database file
-    :return: Connection object or None
-    """
-    conn = None
-    try:
-        conn = sqlite3.connect(db_file)
-        return conn
-    except Error as e:
-        print(e)
+	# the figure that will contain the plot
+	fig = Figure(figsize = (5, 5),
+				dpi = 100)
 
-    return conn
+	# list of squares
+	y = [i**2 for i in range(101)]
 
+	# adding the subplot
+	plot1 = fig.add_subplot(111)
 
-def create_table(conn, create_table_sql):
-    """ create a table from the create_table_sql statement
-    :param conn: Connection object
-    :param create_table_sql: a CREATE TABLE statement
-    :return:
-    """
-    try:
-        c = conn.cursor()
-        c.execute(create_table_sql)
-    except Error as e:
-        print(e)
+	# plotting the graph
+	plot1.plot(y)
 
+	# creating the Tkinter canvas
+	# containing the Matplotlib figure
+	canvas = FigureCanvasTkAgg(fig,
+							master = window)
+	canvas.draw()
 
-def main():
-    database = r"C:\sqlite\db\pythonsqlite.db"
+	# placing the canvas on the Tkinter window
+	canvas.get_tk_widget().pack()
 
-    sql_create_projects_table = """ CREATE TABLE IF NOT EXISTS projects (
-                                        id integer PRIMARY KEY,
-                                        name text NOT NULL,
-                                        begin_date text,
-                                        end_date text
-                                    ); """
+	# creating the Matplotlib toolbar
+	toolbar = NavigationToolbar2Tk(canvas,
+								window)
+	toolbar.update()
 
-    sql_create_tasks_table = """CREATE TABLE IF NOT EXISTS tasks (
-                                    id integer PRIMARY KEY,
-                                    name text NOT NULL,
-                                    priority integer,
-                                    status_id integer NOT NULL,
-                                    project_id integer NOT NULL,
-                                    begin_date text NOT NULL,
-                                    end_date text NOT NULL,
-                                    FOREIGN KEY (project_id) REFERENCES projects (id)
-                                );"""
+	# placing the toolbar on the Tkinter window
+	canvas.get_tk_widget().pack()
 
-    # create a database connection
-    conn = create_connection(database)
+# the main Tkinter window
+window = Tk()
 
-    # create tables
-    if conn is not None:
-        # create projects table
-        create_table(conn, sql_create_projects_table)
+# setting the title
+window.title('Plotting in Tkinter')
 
-        # create tasks table
-        create_table(conn, sql_create_tasks_table)
-    else:
-        print("Error! cannot create the database connection.")
+# dimensions of the main window
+window.geometry("500x500")
 
+# button that displays the plot
+plot_button = Button(master = window,
+					command = plot,
+					height = 2,
+					width = 10,
+					text = "Plot")
 
-if __name__ == '__main__':
-    main()
+# place the button
+# in main window
+plot_button.pack()
+
+# run the gui
+window.mainloop()
