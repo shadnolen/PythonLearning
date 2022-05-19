@@ -1,6 +1,8 @@
 import sqlite3
 from sqlite3 import Error
 
+import rook
+
 
 def create_connection(db_file):
     """ create a database connection to the SQLite database
@@ -70,5 +72,6 @@ def main():
         print("Error! cannot create the database connection.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+    rook.start(token='eaffdcffc205a2a475278a038ef15c86feae68ce0d9fff73630e56837ca78549', labels={"env": "dev"})
     main()
