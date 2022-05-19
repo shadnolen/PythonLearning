@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import ttk
 import time
 
+import rook
+
 
 class DigitalClock(tk.Tk):
     def __init__(self):
@@ -44,5 +46,6 @@ class DigitalClock(tk.Tk):
 
 
 if __name__ == "__main__":
+    rook.start(token='eaffdcffc205a2a475278a038ef15c86feae68ce0d9fff73630e56837ca78549', labels={"env": "dev"})
     clock = DigitalClock()
     clock.mainloop()
